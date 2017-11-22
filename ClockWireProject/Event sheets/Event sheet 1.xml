@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="752408382869034">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="462027936015355" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="779049900209056" type="pointer2">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="945917426556736">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="141772715228947" type="Keyboard">
+                    <param id="0" name="Keycode">32</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="781146480576329" type="System">
+                    <param id="0" name="Object to create">projectile</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">pointer2.X</param>
+                    <param id="3" name="Y">pointer2.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="652074138973407">
+            <conditions>
+                <condition id="-18" name="On created" sid="354661206090167" type="projectile" />
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="527729999840791" type="projectile">
+                    <param id="0" name="Angle">pointer2.Angle -90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="782603529968488">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="101157849125172" type="projectile" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="625176521929478" type="projectile" />
+            </actions>
+        </event-block>
+        <event-block sid="776009350903574">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="174279344204292" type="projectile">
+                    <param id="0" name="Object">switchOff</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="316200165933622" type="System">
+                    <param id="0" name="Object to create">switchOn</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">switchOff.X</param>
+                    <param id="3" name="Y">switchOff.Y</param>
+                </action>
+                <action id="-8" name="Set angle" sid="810753112794352" type="switchOn">
+                    <param id="0" name="Angle">switchOff.Angle</param>
+                </action>
+                <action id="-9" name="Destroy" sid="718084595042376" type="switchOff" />
+                <action id="-9" name="Destroy" sid="603723724448356" type="projectile" />
+            </actions>
+        </event-block>
+        <event-block sid="312387923809425">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="293235503639954" type="projectile">
+                    <param id="0" name="Object">switchOn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="539517061686205" type="System">
+                    <param id="0" name="Object to create">switchOff</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">switchOn.X</param>
+                    <param id="3" name="Y">switchOn.Y</param>
+                </action>
+                <action id="-8" name="Set angle" sid="474822505507699" type="switchOff">
+                    <param id="0" name="Angle">switchOn.Angle</param>
+                </action>
+                <action id="-9" name="Destroy" sid="317645573334465" type="switchOn" />
+                <action id="-9" name="Destroy" sid="105435186477708" type="projectile" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

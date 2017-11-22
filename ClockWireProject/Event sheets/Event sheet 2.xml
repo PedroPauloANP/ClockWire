@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 2</name>
+    <events>
+        <event-block sid="470318641956554">
+            <conditions>
+                <condition id="-18" name="On created" sid="824251271248259" type="centerAnchor" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="874331714640568" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="295212009000634" type="socket">
+                    <param id="0" name="Angle">90</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="504950370366268" type="socket">
+                    <param id="0" name="Degrees">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="800701830001118" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="202495030204662" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="660510696049562" type="socket">
+                    <param id="0" name="Angle">30</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="459399985762635" type="socket">
+                    <param id="0" name="Degrees">60</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="702693186171495" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="781536114120697" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="360446253465584" type="socket">
+                    <param id="0" name="Angle">330</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="761697218677171" type="socket">
+                    <param id="0" name="Degrees">120</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="550731031698733" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="549598818615043" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="886549288825371" type="socket">
+                    <param id="0" name="Angle">270</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="751473967939400" type="socket">
+                    <param id="0" name="Degrees">180</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="912535700977432" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="722864355207762" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="317724979297171" type="socket">
+                    <param id="0" name="Angle">210</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="812172661098056" type="socket">
+                    <param id="0" name="Degrees">240</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="415288787373263" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="580078220239490" type="System">
+                    <param id="0" name="Object to create">socket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">640</param>
+                    <param id="3" name="Y">360</param>
+                </action>
+                <action id="-23" name="Move at angle" sid="571610725314794" type="socket">
+                    <param id="0" name="Angle">150</param>
+                    <param id="1" name="Distance">180</param>
+                </action>
+                <action id="-19" name="Rotate counter-clockwise" sid="868396389609801" type="socket">
+                    <param id="0" name="Degrees">300</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="536275431303887" type="socket">
+                    <param id="0" name="Pin to">centerAnchor</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="844543197395504">
+            <conditions>
+                <condition id="-18" name="On created" sid="533861501991268" type="socket" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="587247954605115" type="System">
+                    <param id="0" name="Object to create">switchOff</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">socket.X</param>
+                    <param id="3" name="Y">socket.Y</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="239496327041110" type="switchOff">
+                    <param id="0" name="Pin to">socket</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="400259835670256" type="switchOff">
+                    <param id="0" name="Angle">socket.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
