@@ -148,171 +148,137 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="switchOff" uid="14">
+            </instances>
+            <effects />
+        </layer>
+        <layer name="User Interface" sid="297213363229150">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>0</x>
+                <y>0</y>
+            </parallax>
+            <zoom-rate>0</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="clock" uid="21">
                     <properties>
+                        <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <font>Arial,-21,700,0</font>
+                        <color>255,233,233</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
                     <instance-variables>
-                        <isActivated>false</isActivated>
+                        <currentTime>0</currentTime>
                     </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>642.34552002</x>
-                        <y>544.305664063</y>
+                        <x>590</x>
+                        <y>40</y>
                         <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
+                        <width>150</width>
+                        <height>30</height>
                         <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="switchOff" uid="17">
+            </instances>
+            <effects />
+        </layer>
+        <layer name="GameOverScreen" sid="623127558097122">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="gameOver_bg" uid="27">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
+                        <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <collisions>Disabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <isActivated>false</isActivated>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>795.07220459</x>
-                        <y>451.579620361</y>
+                        <x>-640</x>
+                        <y>330</y>
                         <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
+                        <width>667</width>
+                        <height>615</height>
                         <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>-1.047197819</angle>
+                        <hotspotX>0.500749648</hotspotX>
+                        <hotspotY>0.500813007</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="switchOff" uid="20">
+                <instance type="gameOver_restart" uid="29">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
+                        <initial-animation>notSelected</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <isActivated>false</isActivated>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>482.345550537</x>
-                        <y>268.85055542</y>
+                        <x>-640</x>
+                        <y>390</y>
                         <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
+                        <width>249</width>
+                        <height>41</height>
                         <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>2.094395161</angle>
+                        <hotspotX>0.502008021</hotspotX>
+                        <hotspotY>0.51219511</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="switchOff" uid="22">
+                <instance type="gameOver_quit" uid="30">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
+                        <initial-animation>notSelected</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <isActivated>false</isActivated>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>483.256530762</x>
-                        <y>451.579742432</y>
+                        <x>-640</x>
+                        <y>450</y>
                         <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
+                        <width>249</width>
+                        <height>42</height>
                         <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
+                        <hotspotX>0.502008021</hotspotX>
                         <hotspotY>0.5</hotspotY>
-                        <angle>1.04719758</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="switchOff" uid="24">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <isActivated>false</isActivated>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>794.164123535</x>
-                        <y>271.580474854</y>
-                        <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
-                        <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>-2.094395161</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="switchOff" uid="25">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>SwitchOff</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <isActivated>false</isActivated>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>639.621032715</x>
-                        <y>179.761199951</y>
-                        <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
-                        <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>3.141592741</angle>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -320,6 +286,14 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="sockets_6" uid="0">
+            <properties>
+                <width>6</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+    </nonworld-instances>
     <effects />
 </c2layout>

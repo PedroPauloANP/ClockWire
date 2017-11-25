@@ -172,11 +172,11 @@
                         <x>742</x>
                         <y>66</y>
                         <z>0</z>
-                        <width>149</width>
-                        <height>94</height>
+                        <width>94</width>
+                        <height>149</height>
                         <depth>0</depth>
-                        <hotspotX>0.503355682</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.496644288</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -228,10 +228,98 @@
                         <x>904</x>
                         <y>67</y>
                         <z>0</z>
-                        <width>133</width>
-                        <height>82</height>
+                        <width>82</width>
+                        <height>133</height>
                         <depth>0</depth>
-                        <hotspotX>0.503759384</hotspotX>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.496240616</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gameOver_bg" uid="19">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1333</x>
+                        <y>322</y>
+                        <z>0</z>
+                        <width>667</width>
+                        <height>615</height>
+                        <depth>0</depth>
+                        <hotspotX>0.500749648</hotspotX>
+                        <hotspotY>0.500813007</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gameOver_quit" uid="23">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>notSele</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>823</x>
+                        <y>423</y>
+                        <z>0</z>
+                        <width>249</width>
+                        <height>42</height>
+                        <depth>0</depth>
+                        <hotspotX>0.502008021</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gameOver_restart" uid="26">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>823</x>
+                        <y>341</y>
+                        <z>0</z>
+                        <width>249</width>
+                        <height>41</height>
+                        <depth>0</depth>
+                        <hotspotX>0.502008021</hotspotX>
+                        <hotspotY>0.51219511</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Victory" uid="31">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>445</x>
+                        <y>623</y>
+                        <z>0</z>
+                        <width>750</width>
+                        <height>150</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>

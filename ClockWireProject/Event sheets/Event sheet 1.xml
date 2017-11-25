@@ -3,89 +3,498 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <event-block sid="752408382869034">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="462027936015355" type="System" />
-            </conditions>
-            <actions>
-                <action behavior="Pin" id="0" name="Pin to object" sid="779049900209056" type="pointer2">
-                    <param id="0" name="Pin to">centerAnchor</param>
-                    <param id="1" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="945917426556736">
-            <conditions>
-                <condition id="4" name="On key code pressed" sid="141772715228947" type="Keyboard">
-                    <param id="0" name="Keycode">32</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="781146480576329" type="System">
-                    <param id="0" name="Object to create">projectile</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">pointer2.X</param>
-                    <param id="3" name="Y">pointer2.Y</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="652074138973407">
-            <conditions>
-                <condition id="-18" name="On created" sid="354661206090167" type="projectile" />
-            </conditions>
-            <actions>
-                <action id="-8" name="Set angle" sid="527729999840791" type="projectile">
-                    <param id="0" name="Angle">pointer2.Angle -90</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="782603529968488">
-            <conditions>
-                <condition id="-4" name="Is outside layout" sid="101157849125172" type="projectile" />
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="625176521929478" type="projectile" />
-            </actions>
-        </event-block>
-        <event-block sid="776009350903574">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="174279344204292" type="projectile">
-                    <param id="0" name="Object">switchOff</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="316200165933622" type="System">
-                    <param id="0" name="Object to create">switchOn</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">switchOff.X</param>
-                    <param id="3" name="Y">switchOff.Y</param>
-                </action>
-                <action id="-8" name="Set angle" sid="810753112794352" type="switchOn">
-                    <param id="0" name="Angle">switchOff.Angle</param>
-                </action>
-                <action id="-9" name="Destroy" sid="718084595042376" type="switchOff" />
-                <action id="-9" name="Destroy" sid="603723724448356" type="projectile" />
-            </actions>
-        </event-block>
-        <event-block sid="312387923809425">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="293235503639954" type="projectile">
-                    <param id="0" name="Object">switchOn</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="539517061686205" type="System">
-                    <param id="0" name="Object to create">switchOff</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">switchOn.X</param>
-                    <param id="3" name="Y">switchOn.Y</param>
-                </action>
-                <action id="-8" name="Set angle" sid="474822505507699" type="switchOff">
-                    <param id="0" name="Angle">switchOn.Angle</param>
-                </action>
-                <action id="-9" name="Destroy" sid="317645573334465" type="switchOn" />
-                <action id="-9" name="Destroy" sid="105435186477708" type="projectile" />
-            </actions>
-        </event-block>
+        <variable comment="How many switches were activated by the player" constant="0" name="currentActiveSwitches" sid="795508720638443" static="0" type="number">0</variable>
+        <variable comment="How many switches the level has" constant="0" name="targetActiveSwitches" sid="727465967218159" static="0" type="number">3</variable>
+        <variable comment="Used to tell the game the current state of the game" constant="0" name="gameState" sid="720529130776077" static="0" type="text">initializing</variable>
+        <variable comment="The time that the player have to complete the level" constant="0" name="level_initial_time" sid="430963284079630" static="0" type="number">12</variable>
+        <event-group description='Trata de &quot;Pinar&quot; o ponteiro para que ele gire com o &quot;centerAnchor&quot; e iniciar o tempo do relógio' sid="433028441361910" title="Layout Initializer">
+            <sub-events>
+                <event-block sid="752408382869034">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="462027936015355" type="System" />
+                        <condition id="-14" name="Compare variable" sid="930332252278835" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;initializing&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="779049900209056" type="pointer2">
+                            <param id="0" name="Pin to">centerAnchor</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="621444962034477" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Value">level_initial_time</param>
+                        </action>
+                        <action id="0" name="Set text" sid="609578787714391" type="clock">
+                            <param id="0" name="Text">&quot;Time: &quot; &amp; floor(clock.currentTime)&amp;&quot;.&quot;&amp;(clock.currentTime*10)%10</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="416277512193760" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;generatingClock&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Responsavel pela criação de um clockwire diferente a cada jogada" sid="255759864132769" title="Level Generation">
+            <sub-events>
+                <variable constant="0" name="count" sid="522537401124711" static="0" type="number">0</variable>
+                <variable constant="0" name="randomValue" sid="358253135643905" static="0" type="number">0</variable>
+                <event-block sid="387160024654622">
+                    <conditions>
+                        <condition id="-10" name="For" sid="498273639793788" type="System">
+                            <param id="0" name="Name">&quot;arrayInitializer&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="916108515675622" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;generatingClock&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="597236789411407" type="sockets_6">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Value">0</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="722160417218367">
+                    <conditions>
+                        <condition id="-23" name="While" sid="880007646364679" type="System" />
+                        <condition id="-14" name="Compare variable" sid="338843995173401" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;generatingClock&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="405079104097851" type="System">
+                            <param id="0" name="Variable">count</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">targetActiveSwitches</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="706686122982178" type="System">
+                            <param id="0" name="Variable">randomValue</param>
+                            <param id="1" name="Value">floor(random(0,6))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="704033676924048">
+                            <conditions>
+                                <condition id="0" name="Compare at X" sid="314158551388363" type="sockets_6">
+                                    <param id="0" name="X">randomValue</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="170654281401076" type="System">
+                                    <param id="0" name="Object to create">switchOff</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">centerAnchor.X</param>
+                                    <param id="3" name="Y">centerAnchor.Y</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="337806826288107" type="switchOff">
+                                    <param id="0" name="Angle">30 + (randomValue * 60)</param>
+                                </action>
+                                <action id="-17" name="Move forward" sid="134008920833874" type="switchOff">
+                                    <param id="0" name="Distance">175</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="809146007894036" type="System">
+                                    <param id="0" name="Variable">count</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="209281355310916" type="sockets_6">
+                                    <param id="0" name="X">randomValue</param>
+                                    <param id="1" name="Value">&quot;normalSwitch&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="578896558988366">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="921354042099942" type="System">
+                                    <param id="0" name="Variable">gameState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;generatingClock&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="446924245756237" type="System">
+                                    <param id="0" name="Variable">count</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">targetActiveSwitches</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="827499129694236" type="System">
+                                    <param id="0" name="Variable">gameState</param>
+                                    <param id="1" name="Value">&quot;onGame&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Determina quando o projetil deve ser criado ou destruido caso saia do layout (pra não sobrecaregar a memória e o processador)" sid="257674056677195" title="Projectile Management">
+            <sub-events>
+                <event-block sid="945917426556736">
+                    <conditions>
+                        <condition id="4" name="On key code pressed" sid="141772715228947" type="Keyboard">
+                            <param id="0" name="Keycode">32</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="924777131310136" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="285052512719741" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;onGame&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="781146480576329" type="System">
+                            <param id="0" name="Object to create">projectile</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">pointer2.X</param>
+                            <param id="3" name="Y">pointer2.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="652074138973407">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="354661206090167" type="projectile" />
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="527729999840791" type="projectile">
+                            <param id="0" name="Angle">pointer2.Angle -90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="782603529968488">
+                    <conditions>
+                        <condition id="-4" name="Is outside layout" sid="101157849125172" type="projectile" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="625176521929478" type="projectile" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Determina que os switches devem ligar ou desligar quando acertados. Tbm responsável por destruir os projéteis que entram em contado com os switches" sid="983453245979795" title="Swiitch Management">
+            <sub-events>
+                <event-block sid="776009350903574">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="174279344204292" type="projectile">
+                            <param id="0" name="Object">switchOff</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="316200165933622" type="System">
+                            <param id="0" name="Object to create">switchOn</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switchOff.X</param>
+                            <param id="3" name="Y">switchOff.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="810753112794352" type="switchOn">
+                            <param id="0" name="Angle">switchOff.Angle</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="814619720986768" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="718084595042376" type="switchOff" />
+                        <action id="-9" name="Destroy" sid="603723724448356" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="312387923809425">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="293235503639954" type="projectile">
+                            <param id="0" name="Object">switchOn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="539517061686205" type="System">
+                            <param id="0" name="Object to create">switchOff</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switchOn.X</param>
+                            <param id="3" name="Y">switchOn.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="474822505507699" type="switchOff">
+                            <param id="0" name="Angle">switchOn.Angle</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="347055873123912" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="317645573334465" type="switchOn" />
+                        <action id="-9" name="Destroy" sid="105435186477708" type="projectile" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Faz a contagem do tempo" sid="950693308260780" title="Clock Management">
+            <sub-events>
+                <event-block sid="324655532799084">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="396693703285505" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;onGame&quot;</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="214508762618324" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="233603880553965" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="356751708480067" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="528733237972976" type="clock">
+                            <param id="0" name="Text">&quot;Time: &quot; &amp; floor(clock.currentTime)&amp;&quot;.&quot;&amp;(clock.currentTime*10)%10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="309804594245497">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="981631723204471" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;onGame&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="307647684457048" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="254595482641380" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="680535739617487" type="clock">
+                            <param id="0" name="Text">&quot;Time: &quot; &amp; floor(clock.currentTime)&amp;&quot;.&quot;&amp;(clock.currentTime*10)%10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="279780412420335">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="429027812193009" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;onGame&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="925395506087063" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="544315608645518" type="gameOver_bg">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="354808390902938" type="gameOver_bg">
+                            <param id="0" name="X">640</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="848656546244981" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;gameOver_01&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description='Detecta quando o jogo deve entrar em estado de &quot;game over&quot;, assim como tambem exibir a tela' sid="247221326358632" title="GameOver Management">
+            <sub-events>
+                <event-block sid="238463136370780">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="569855495918426" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOver_01&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="103605524812910" type="gameOver_bg">
+                            <param id="0" name="Opacity">gameOver_bg.Opacity + 200*dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="462917270448220">
+                    <conditions>
+                        <condition id="-10" name="Compare opacity" sid="953315297608907" type="gameOver_bg">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Opacity">100</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="204463839898447" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOver_01&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="740050181323268" type="gameOver_restart">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="573627970540115" type="gameOver_restart">
+                            <param id="0" name="X">640</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="512115939477657" type="gameOver_quit">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="394184775584908" type="gameOver_quit">
+                            <param id="0" name="X">640</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="421969534344679" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;gameOver_02&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="207648628096185">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="314280183517659" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOver_02&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="680241955825261" type="gameOver_restart">
+                            <param id="0" name="Opacity">gameOver_restart.Opacity + 200*dt</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="372166004078748" type="gameOver_quit">
+                            <param id="0" name="Opacity">gameOver_quit.Opacity + 200*dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="667610563517232">
+                    <conditions>
+                        <condition id="-10" name="Compare opacity" sid="604416443508840" type="gameOver_restart">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Opacity">100</param>
+                        </condition>
+                        <condition id="-10" name="Compare opacity" sid="955001478915790" type="gameOver_quit">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Opacity">100</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="876929840958169" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOver_02&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="650636729052616" type="gameOver_bg">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="579430749369591" type="gameOver_restart">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="472305749491655" type="gameOver_quit">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="201237482866572" type="gameOver_restart">
+                            <param id="0" name="Animation">&quot;selected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="911835462967056" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;gameOverSelection=restart&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="565853467524371">
+                    <conditions>
+                        <condition id="4" name="On key code pressed" sid="411789947634338" type="Keyboard">
+                            <param id="0" name="Keycode">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="105508435260045" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOverSelection=restart&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="491212952087306" type="gameOver_quit">
+                            <param id="0" name="Animation">&quot;selected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="351395207662219" type="gameOver_restart">
+                            <param id="0" name="Animation">&quot;notSelected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="187683927894957" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;gameOverSelection=quit&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="971540267157186">
+                    <conditions>
+                        <condition id="4" name="On key code pressed" sid="263037431896248" type="Keyboard">
+                            <param id="0" name="Keycode">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="707008955245207" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;gameOverSelection=quit&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="851530524828866" type="gameOver_quit">
+                            <param id="0" name="Animation">&quot;notSelected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="970897576684670" type="gameOver_restart">
+                            <param id="0" name="Animation">&quot;selected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="765034312255082" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;gameOverSelection=restart&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Detecta quando o jogador vence" sid="588343507595612" title="Victory">
+            <sub-events>
+                <event-block sid="493289726566921">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="620646019488587" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">targetActiveSwitches</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="325484877642391" type="System">
+                            <param id="0" name="Object to create">Victory</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">WindowWidth/2</param>
+                            <param id="3" name="Y">WindowHeight/2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="907278907966396" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;victory&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

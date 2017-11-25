@@ -10,8 +10,10 @@
     <unique-id>155dp9levkxzb</unique-id>
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
@@ -119,15 +121,15 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="SwitchOff" pingpong="0" repeatcount="1" repeatto="0" sid="794139578893430" speed="5">
-                    <frame duration="1" hotspotX="0.503356" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\Switch_02.png">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="794139578893430" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.496644" original-source="C:\Users\Guilherme\Desktop\construct\Switch_02.png">
                         <collision-poly>
-                            <point x="0.241611" y="0" />
-                            <point x="0.758389" y="0" />
-                            <point x="1" y="0.691654" />
-                            <point x="0.848994" y="1" />
-                            <point x="0.174497" y="1" />
-                            <point x="0" y="0.686335" />
+                            <point x="0" y="0.758389" />
+                            <point x="0" y="0.241611" />
+                            <point x="0.691654" y="0" />
+                            <point x="1" y="0.151006" />
+                            <point x="1" y="0.825503" />
+                            <point x="0.686335" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -211,14 +213,14 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="960210868046982" speed="5">
-                    <frame duration="1" hotspotX="0.503759" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\SwitchOn - Cópia.png">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.496241" original-source="C:\Users\Guilherme\Desktop\construct\SwitchOn - Cópia.png">
                         <collision-poly>
-                            <point x="0.259453" y="0" />
-                            <point x="0.736788" y="0" />
-                            <point x="1" y="0.695337" />
-                            <point x="0.846" y="1" />
-                            <point x="0.150241" y="1" />
-                            <point x="0" y="0.71363" />
+                            <point x="0" y="0.740547" />
+                            <point x="0" y="0.263212" />
+                            <point x="0.695337" y="0" />
+                            <point x="1" y="0.154" />
+                            <point x="1" y="0.849759" />
+                            <point x="0.71363" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -228,15 +230,120 @@
             <plugin id="TiledBg" />
             <texture original-source="C:\Users\Guilherme\Desktop\construct\background_01.png" />
         </object-type>
+        <object-type name="clock" sid="796317793288432">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="currentTime" sid="232770553912951" type="number" />
+            </instance-variables>
+        </object-type>
+        <object-type name="gameOver_bg" sid="257408049134693">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="508977871912275" speed="5">
+                    <frame duration="1" hotspotX="0.50075" hotspotY="0.500813" original-source="C:\Users\Guilherme\Desktop\construct\Tela-de-Game-Over\Tela de Game Over.png">
+                        <collision-poly>
+                            <point x="0.00149925" y="0.00162602" />
+                            <point x="0.998501" y="0.00162602" />
+                            <point x="0.998501" y="0.998374" />
+                            <point x="0.00149925" y="0.998374" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="gameOver_quit" sid="659993668823003">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="notSelected" pingpong="0" repeatcount="1" repeatto="0" sid="840471390681856" speed="5">
+                    <frame duration="1" hotspotX="0.502008" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\Tela-de-Game-Over\Botão Quit - Dslct.png">
+                        <collision-poly>
+                            <point x="0.0281125" y="0.166667" />
+                            <point x="0.497992" y="0.0238095" />
+                            <point x="0.955823" y="0.261905" />
+                            <point x="0.97992" y="0.5" />
+                            <point x="0.975904" y="0.857143" />
+                            <point x="0.497992" y="1" />
+                            <point x="0.0441767" y="0.738095" />
+                            <point x="0.0200803" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="selected" pingpong="0" repeatcount="1" repeatto="0" sid="139874245292149" speed="5">
+                    <frame duration="1" hotspotX="0.502041" hotspotY="0.512195" original-source="C:\Users\Guilherme\Desktop\construct\Tela-de-Game-Over\Botão Quit - Slct.png">
+                        <collision-poly>
+                            <point x="0.0244898" y="0.146341" />
+                            <point x="0.497959" y="0.0487805" />
+                            <point x="0.959184" y="0.243902" />
+                            <point x="0.979592" y="0.487805" />
+                            <point x="0.979592" y="0.878049" />
+                            <point x="0.497959" y="0.97561" />
+                            <point x="0.0408163" y="0.756098" />
+                            <point x="0.0163265" y="0.487805" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="gameOver_restart" sid="328351725705253">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="notSelected" pingpong="0" repeatcount="1" repeatto="0" sid="331465561630120" speed="5">
+                    <frame duration="1" hotspotX="0.502008" hotspotY="0.512195" original-source="C:\Users\Guilherme\Desktop\construct\Tela-de-Game-Over\Botão Restart - Dslct.png">
+                        <collision-poly>
+                            <point x="0.0240964" y="0.146341" />
+                            <point x="0.497992" y="0" />
+                            <point x="0.955823" y="0.268293" />
+                            <point x="0.97992" y="0.487805" />
+                            <point x="0.975904" y="0.853659" />
+                            <point x="0.497992" y="1" />
+                            <point x="0.0441767" y="0.731707" />
+                            <point x="0.0200803" y="0.487805" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="selected" pingpong="0" repeatcount="1" repeatto="0" sid="361115415873581" speed="5">
+                    <frame duration="1" hotspotX="0.502041" hotspotY="0.512195" original-source="C:\Users\Guilherme\Desktop\construct\Tela-de-Game-Over\Botão Restart - Slct.png">
+                        <collision-poly>
+                            <point x="0.0240964" y="0.146341" />
+                            <point x="0.497992" y="0" />
+                            <point x="0.955823" y="0.268293" />
+                            <point x="0.97992" y="0.487805" />
+                            <point x="0.975904" y="0.853659" />
+                            <point x="0.497992" y="1" />
+                            <point x="0.0441767" y="0.731707" />
+                            <point x="0.0200803" y="0.487805" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Victory" sid="524533946430394">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="429888584059669" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\UI\Tela de Vitoria.png">
+                        <collision-poly>
+                            <point x="0.154667" y="0.773333" />
+                            <point x="0.5" y="0.24" />
+                            <point x="0.873333" y="0.633333" />
+                            <point x="0.96" y="0.8" />
+                            <point x="0.5" y="0.42" />
+                            <point x="0.0506667" y="0.746667" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="sockets_6" sid="753752101407975">
+            <plugin id="Arr" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
-        <layout>Layout 2.xml</layout>
         <layout>Gfx.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 2.xml</event-sheet>
         <event-sheet>Event sheet 1.xml</event-sheet>
     </event-folder>
     <global-instances>
