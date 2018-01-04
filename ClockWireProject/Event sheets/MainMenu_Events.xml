@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MainMenu_Events</name>
+    <events>
+        <event-block sid="917979556570768">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="748250653957041" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MainMenu_startButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="445259838036813" type="System" />
+                <action id="-2" name="Go to layout" sid="124110726190132" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="519404399945322">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="841700237950158" type="Keyboard">
+                    <param id="0" name="Keycode">32</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="751539629491148" type="System" />
+                <action id="-2" name="Go to layout" sid="982097834971915" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
