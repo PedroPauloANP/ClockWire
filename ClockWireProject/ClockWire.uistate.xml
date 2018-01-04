@@ -10,8 +10,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">Layout 1</layout>
-        <event-sheet active="1" order="1">Event sheet 1</event-sheet>
+        <layout order="0">Game</layout>
+        <event-sheet active="1" order="1">Game_Events</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -30,16 +30,23 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/outerCircle/" />
         <folder expanded="1" path="animation-folder/innerCircle/" />
-        <folder expanded="1" path="animation-folder/pointer/" />
-        <folder expanded="1" path="animation-folder/switchOff/" />
+        <folder expanded="1" path="animation-folder/switch_common/" />
         <folder expanded="1" path="animation-folder/centerAnchor/" />
         <folder expanded="1" path="animation-folder/socket/" />
-        <folder expanded="1" path="animation-folder/pointer2/" />
+        <folder expanded="1" path="animation-folder/pointer/" />
         <folder expanded="1" path="animation-folder/projectile/" />
-        <folder expanded="1" path="animation-folder/switchOn/" />
+        <folder expanded="1" path="animation-folder/switchOn_common/" />
         <folder expanded="1" path="animation-folder/gameOver_bg/" />
         <folder expanded="1" path="animation-folder/gameOver_quit/" />
         <folder expanded="1" path="animation-folder/gameOver_restart/" />
         <folder expanded="1" path="animation-folder/Victory/" />
+        <folder expanded="1" path="animation-folder/MainMenu_startButton/" />
+        <folder expanded="1" path="animation-folder/MainMenuLayout/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/Switch_triple/" />
+        <folder expanded="1" path="animation-folder/SwitchTime/" />
+        <folder expanded="1" path="animation-folder/Switch_dual/" />
+        <folder expanded="1" path="animation-folder/switchOn_dual/" />
+        <folder expanded="1" path="animation-folder/switchOn_triple/" />
     </folders-expanded>
 </c2uistate>

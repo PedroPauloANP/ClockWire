@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -31,6 +32,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>MainMenu</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -86,31 +88,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="pointer" sid="385125528175042">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Pin" sid="110724216678053">
-                    <behavior id="Pin" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="216782706860586" speed="5">
-                    <frame duration="1" hotspotX="0.516129" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\Pointer.png">
-                        <collision-poly>
-                            <point x="0.387097" y="0.12766" />
-                            <point x="0.483871" y="0.0106383" />
-                            <point x="0.645161" y="0.117021" />
-                            <point x="1" y="0.5" />
-                            <point x="0.645161" y="0.882979" />
-                            <point x="0.483871" y="1" />
-                            <point x="0.387097" y="0.87234" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="switchOff" sid="415712120908491">
+        <object-type name="switch_common" sid="415712120908491">
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable comment="Indica se o switch está ligado ou desligado" name="isActivated" sid="641067086565203" type="boolean" />
@@ -161,7 +139,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="pointer2" sid="861110125455378">
+        <object-type name="pointer" sid="861110125455378">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Pin" sid="161713082505420">
@@ -209,7 +187,7 @@
         <object-type name="Keyboard" sid="877796720829627">
             <plugin id="Keyboard" />
         </object-type>
-        <object-type name="switchOn" sid="915627776627474">
+        <object-type name="switchOn_common" sid="915627776627474">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="960210868046982" speed="5">
@@ -337,17 +315,170 @@
         <object-type global="1" name="sockets_6" sid="753752101407975">
             <plugin id="Arr" />
         </object-type>
+        <object-type name="MainMenu_startButton" sid="978303372628518">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="290608091971586" speed="5">
+                    <frame duration="1" hotspotX="0.502041" hotspotY="0.512195" original-source="C:\Users\Guilherme\Desktop\construct\UI\Tela de abertura B.png">
+                        <collision-poly>
+                            <point x="0.0244898" y="0.146341" />
+                            <point x="0.497959" y="0.0243902" />
+                            <point x="0.959184" y="0.243902" />
+                            <point x="0.983673" y="0.487805" />
+                            <point x="0.97551" y="0.853659" />
+                            <point x="0.497959" y="0.951219" />
+                            <point x="0.044898" y="0.731707" />
+                            <point x="0.0204082" y="0.487805" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MainMenuLayout" sid="756794833917300">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="739010579042588" speed="5">
+                    <frame duration="1" hotspotX="0.501953" hotspotY="0.501953" original-source="C:\Users\Guilherme\Desktop\construct\UI\Tela de abertura C.png">
+                        <collision-poly>
+                            <point x="0.146497" y="0.146497" />
+                            <point x="0.498938" y="0.00212314" />
+                            <point x="0.853503" y="0.146497" />
+                            <point x="0.997877" y="0.498938" />
+                            <point x="0.85138" y="0.85138" />
+                            <point x="0.498938" y="0.997877" />
+                            <point x="0.146497" y="0.853503" />
+                            <point x="0.00212314" y="0.498938" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="179930802929891">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Sprite" sid="573344859793959">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="250656355211836" speed="5">
+                    <frame duration="1" hotspotX="0.516729" hotspotY="0.526316" original-source="C:\Users\Guilherme\Desktop\construct\UI\alphaJoke.png">
+                        <collision-poly>
+                            <point x="0.0111524" y="0.0526316" />
+                            <point x="0.513011" y="0.157895" />
+                            <point x="0.996283" y="0.368421" />
+                            <point x="0.996283" y="0.631579" />
+                            <point x="0.513011" y="0.684211" />
+                            <point x="0.0408922" y="0.526316" />
+                            <point x="0.00371747" y="0.473684" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Switch_triple" sid="902605479068121">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="616559319473443" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503356" original-source="C:\Users\Guilherme\Desktop\construct\Switch_Multiplo.png">
+                        <collision-poly>
+                            <point x="0.838926" y="0.744681" />
+                            <point x="0.503356" y="1" />
+                            <point x="0.161074" y="0.744681" />
+                            <point x="0.0671141" y="0.5" />
+                            <point x="0.0872483" y="0.138298" />
+                            <point x="0.503356" y="0" />
+                            <point x="0.912752" y="0.138298" />
+                            <point x="0.932886" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SwitchTime" sid="500126258835785">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="726193304244931" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\Switch_Time.png">
+                        <collision-poly>
+                            <point x="0.255319" y="0.837838" />
+                            <point x="0.0106383" y="0.5" />
+                            <point x="0.255319" y="0.162162" />
+                            <point x="0.5" y="0.0675676" />
+                            <point x="0.851064" y="0.0945946" />
+                            <point x="0.989362" y="0.5" />
+                            <point x="0.851064" y="0.905405" />
+                            <point x="0.5" y="0.932432" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Switch_dual" sid="200000628276091">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="901887396109415" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503356" original-source="C:\Users\Guilherme\Desktop\construct\Switch_Multiplo.png">
+                        <collision-poly>
+                            <point x="0.838926" y="0.744681" />
+                            <point x="0.503356" y="1" />
+                            <point x="0.161074" y="0.744681" />
+                            <point x="0.0671141" y="0.5" />
+                            <point x="0.0872483" y="0.138298" />
+                            <point x="0.503356" y="0" />
+                            <point x="0.912752" y="0.138298" />
+                            <point x="0.932886" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="switchOn_dual" sid="675162942477654">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="229265106997009" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503356" original-source="C:\Users\Guilherme\Desktop\construct\sprites\SwitchOn_Multiplo.png">
+                        <collision-poly>
+                            <point x="1" y="0.259453" />
+                            <point x="1" y="0.736788" />
+                            <point x="0.304663" y="1" />
+                            <point x="0" y="0.846" />
+                            <point x="0" y="0.150241" />
+                            <point x="0.28637" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="switchOn_triple" sid="475192198350913">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="741093397328665" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503356" original-source="C:\Users\Guilherme\Desktop\construct\sprites\SwitchOn_Multiplo.png">
+                        <collision-poly>
+                            <point x="0.740547" y="1" />
+                            <point x="0.263212" y="1" />
+                            <point x="0" y="0.304663" />
+                            <point x="0.154" y="0" />
+                            <point x="0.849759" y="0" />
+                            <point x="1" y="0.28637" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>MainMenu.xml</layout>
+        <layout>Game.xml</layout>
         <layout>Gfx.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Game_Events.xml</event-sheet>
+        <event-sheet>MainMenu_Events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="15" />
+        <global-instance type="Mouse" uid="4" />
     </global-instances>
     <sounds-folder />
     <music-folder />
