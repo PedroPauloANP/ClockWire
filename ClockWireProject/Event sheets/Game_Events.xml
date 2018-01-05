@@ -4,8 +4,8 @@
     <name>Game_Events</name>
     <events>
         <variable comment="How many switches the level has" constant="0" name="target_normalSwitch_count" sid="727465967218159" static="0" type="number">2</variable>
-        <variable constant="0" name="target_doubleSwitch_count" sid="517363302249231" static="0" type="number">2</variable>
-        <variable constant="0" name="target_tripleSwitch_count" sid="855112951786121" static="0" type="number">2</variable>
+        <variable constant="0" name="target_doubleSwitch_count" sid="517363302249231" static="0" type="number">1</variable>
+        <variable constant="0" name="target_tripleSwitch_count" sid="855112951786121" static="0" type="number">1</variable>
         <variable comment="How many switches were activated by the player" constant="0" name="currentActiveSwitches" sid="795508720638443" static="0" type="number">0</variable>
         <variable comment="Used to tell the game the current state of the game" constant="0" name="gameState" sid="720529130776077" static="0" type="text">initializing</variable>
         <variable comment="The time that the player have to complete the level" constant="0" name="level_initial_time" sid="430963284079630" static="0" type="number">12</variable>
@@ -68,166 +68,6 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block disabled="1" sid="722160417218367">
-                    <conditions>
-                        <condition id="-23" name="While" sid="880007646364679" type="System" />
-                        <condition id="-14" name="Compare variable" sid="405079104097851" type="System">
-                            <param id="0" name="Variable">normalSwitch_count</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Value">target_normalSwitch_count</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="772777185368507" type="System">
-                            <param id="0" name="Variable">gameState</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;generatingClock&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="706686122982178" type="System">
-                            <param id="0" name="Variable">randomValue</param>
-                            <param id="1" name="Value">floor(random(0,6))</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <event-block sid="704033676924048">
-                            <conditions>
-                                <condition id="0" name="Compare at X" sid="314158551388363" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-3" name="Create object" sid="170654281401076" type="System">
-                                    <param id="0" name="Object to create">switch_common</param>
-                                    <param id="1" name="Layer">0</param>
-                                    <param id="2" name="X">centerAnchor.X</param>
-                                    <param id="3" name="Y">centerAnchor.Y</param>
-                                </action>
-                                <action id="-8" name="Set angle" sid="337806826288107" type="switch_common">
-                                    <param id="0" name="Angle">30 + (randomValue * 60)</param>
-                                </action>
-                                <action id="-17" name="Move forward" sid="134008920833874" type="switch_common">
-                                    <param id="0" name="Distance">175</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="809146007894036" type="System">
-                                    <param id="0" name="Variable">normalSwitch_count</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="2" name="Set at X" sid="209281355310916" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Value">&quot;normalSwitch&quot;</param>
-                                </action>
-                                <action disabled="1" id="-9" name="Set value" sid="655925492768248" type="System">
-                                    <param id="0" name="Variable">totalCount</param>
-                                    <param id="1" name="Value">normalSwitch_count + doubleSwitch_count + tripleSwitch_count</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block disabled="1" sid="252443502528487">
-                    <conditions>
-                        <condition id="-23" name="While" sid="163881332211042" type="System" />
-                        <condition id="-14" name="Compare variable" sid="182845487030031" type="System">
-                            <param id="0" name="Variable">doubleSwitch_count</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Value">target_doubleSwitch_count</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="969477089413425" type="System">
-                            <param id="0" name="Variable">randomValue</param>
-                            <param id="1" name="Value">floor(random(0,6))</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <event-block sid="112152291254369">
-                            <conditions>
-                                <condition id="0" name="Compare at X" sid="409678390804173" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-3" name="Create object" sid="567959340932260" type="System">
-                                    <param id="0" name="Object to create">Switch_dual</param>
-                                    <param id="1" name="Layer">0</param>
-                                    <param id="2" name="X">centerAnchor.X</param>
-                                    <param id="3" name="Y">centerAnchor.Y</param>
-                                </action>
-                                <action id="-8" name="Set angle" sid="167652236318161" type="Switch_dual">
-                                    <param id="0" name="Angle">30 + (randomValue * 60)</param>
-                                </action>
-                                <action id="-17" name="Move forward" sid="724356887560534" type="Switch_dual">
-                                    <param id="0" name="Distance">175</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="821901740526978" type="System">
-                                    <param id="0" name="Variable">doubleSwitch_count</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="2" name="Set at X" sid="256045569572101" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Value">&quot;doubleSwitch&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block disabled="1" sid="852712253442668">
-                    <conditions>
-                        <condition id="-23" name="While" sid="269127965702049" type="System" />
-                        <condition id="-14" name="Compare variable" sid="312442143908218" type="System">
-                            <param id="0" name="Variable">tripleSwitch_count</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Value">target_tripleSwitch_count</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="730067683669345" type="System">
-                            <param id="0" name="Variable">randomValue</param>
-                            <param id="1" name="Value">floor(random(0,6))</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <event-block sid="184030246817327">
-                            <conditions>
-                                <condition id="0" name="Compare at X" sid="103670011114723" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-3" name="Create object" sid="941498653366334" type="System">
-                                    <param id="0" name="Object to create">Switch_triple</param>
-                                    <param id="1" name="Layer">0</param>
-                                    <param id="2" name="X">centerAnchor.X</param>
-                                    <param id="3" name="Y">centerAnchor.Y</param>
-                                </action>
-                                <action id="-8" name="Set angle" sid="909357001188412" type="Switch_triple">
-                                    <param id="0" name="Angle">30 + (randomValue * 60)</param>
-                                </action>
-                                <action id="-17" name="Move forward" sid="886268607322297" type="Switch_triple">
-                                    <param id="0" name="Distance">175</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="165962753022152" type="System">
-                                    <param id="0" name="Variable">tripleSwitch_count</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="2" name="Set at X" sid="261384137991956" type="sockets_6">
-                                    <param id="0" name="X">randomValue</param>
-                                    <param id="1" name="Value">&quot;tripleSwitch&quot;</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="235056942452681" type="System">
-                                    <param id="0" name="Variable">totalCount</param>
-                                    <param id="1" name="Value">normalSwitch_count + doubleSwitch_count + tripleSwitch_count</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
                 <event-block sid="837517781242664">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="998504988754079" type="System">
@@ -264,15 +104,15 @@
                                     </conditions>
                                     <actions>
                                         <action id="-3" name="Create object" sid="561433016779504" type="System">
-                                            <param id="0" name="Object to create">switch_common</param>
+                                            <param id="0" name="Object to create">switch_common_1</param>
                                             <param id="1" name="Layer">0</param>
                                             <param id="2" name="X">centerAnchor.X</param>
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="305315787521782" type="switch_common">
+                                        <action id="-8" name="Set angle" sid="305315787521782" type="switch_common_1">
                                             <param id="0" name="Angle">30 + (randomValue * 60)</param>
                                         </action>
-                                        <action id="-17" name="Move forward" sid="968107848308480" type="switch_common">
+                                        <action id="-17" name="Move forward" sid="968107848308480" type="switch_common_1">
                                             <param id="0" name="Distance">175</param>
                                         </action>
                                         <action id="-10" name="Add to" sid="380552085151259" type="System">
@@ -317,15 +157,15 @@
                                     </conditions>
                                     <actions>
                                         <action id="-3" name="Create object" sid="826002098488085" type="System">
-                                            <param id="0" name="Object to create">Switch_dual</param>
+                                            <param id="0" name="Object to create">Switch_dual_2</param>
                                             <param id="1" name="Layer">0</param>
                                             <param id="2" name="X">centerAnchor.X</param>
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="814738159830863" type="Switch_dual">
+                                        <action id="-8" name="Set angle" sid="814738159830863" type="Switch_dual_2">
                                             <param id="0" name="Angle">30 + (randomValue * 60)</param>
                                         </action>
-                                        <action id="-17" name="Move forward" sid="707918633538889" type="Switch_dual">
+                                        <action id="-17" name="Move forward" sid="707918633538889" type="Switch_dual_2">
                                             <param id="0" name="Distance">175</param>
                                         </action>
                                         <action id="-10" name="Add to" sid="258486011474294" type="System">
@@ -370,15 +210,15 @@
                                     </conditions>
                                     <actions>
                                         <action id="-3" name="Create object" sid="350457954927132" type="System">
-                                            <param id="0" name="Object to create">Switch_triple</param>
+                                            <param id="0" name="Object to create">Switch_triple_3</param>
                                             <param id="1" name="Layer">0</param>
                                             <param id="2" name="X">centerAnchor.X</param>
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="690683233929005" type="Switch_triple">
+                                        <action id="-8" name="Set angle" sid="690683233929005" type="Switch_triple_3">
                                             <param id="0" name="Angle">30 + (randomValue * 60)</param>
                                         </action>
-                                        <action id="-17" name="Move forward" sid="357382537713283" type="Switch_triple">
+                                        <action id="-17" name="Move forward" sid="357382537713283" type="Switch_triple_3">
                                             <param id="0" name="Distance">175</param>
                                         </action>
                                         <action id="-10" name="Add to" sid="213963272000662" type="System">
@@ -494,88 +334,204 @@
                 <event-block sid="530170860484452">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="591048584757781" type="projectile">
-                            <param id="0" name="Object">Switch_triple</param>
+                            <param id="0" name="Object">Switch_triple_3</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="445497657468359" type="System">
-                            <param id="0" name="Object to create">Switch_dual</param>
+                            <param id="0" name="Object to create">Switch_triple_2</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">Switch_triple.X</param>
-                            <param id="3" name="Y">Switch_triple.Y</param>
+                            <param id="2" name="X">Switch_triple_3.X</param>
+                            <param id="3" name="Y">Switch_triple_3.Y</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="981889296923044" type="Switch_dual">
-                            <param id="0" name="Angle">Switch_triple.Angle</param>
+                        <action id="-8" name="Set angle" sid="981889296923044" type="Switch_triple_2">
+                            <param id="0" name="Angle">Switch_triple_3.Angle</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="871003286487625" type="Switch_triple" />
+                        <action id="-9" name="Destroy" sid="871003286487625" type="Switch_triple_3" />
                         <action id="-9" name="Destroy" sid="328318428826301" type="projectile" />
                     </actions>
                 </event-block>
-                <event-block sid="268300416699106">
+                <event-block sid="926110143210284">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="498403124097415" type="projectile">
-                            <param id="0" name="Object">Switch_dual</param>
+                        <condition id="0" name="On collision with another object" sid="254244993652799" type="projectile">
+                            <param id="0" name="Object">Switch_triple_2</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Create object" sid="642843085817266" type="System">
-                            <param id="0" name="Object to create">switch_common</param>
+                        <action id="-3" name="Create object" sid="242300545717031" type="System">
+                            <param id="0" name="Object to create">Switch_triple_1</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">Switch_dual.X</param>
-                            <param id="3" name="Y">Switch_dual.Y</param>
+                            <param id="2" name="X">Switch_triple_2.X</param>
+                            <param id="3" name="Y">Switch_triple_2.Y</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="752983083588866" type="switch_common">
-                            <param id="0" name="Angle">Switch_dual.Angle</param>
+                        <action id="-8" name="Set angle" sid="277201726625581" type="Switch_triple_1">
+                            <param id="0" name="Angle">Switch_triple_2.Angle</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="754793597680454" type="Switch_dual" />
-                        <action id="-9" name="Destroy" sid="785649850104936" type="projectile" />
+                        <action id="-9" name="Destroy" sid="322710812358240" type="Switch_triple_2" />
+                        <action id="-9" name="Destroy" sid="721240549879566" type="projectile" />
                     </actions>
                 </event-block>
                 <event-block sid="776009350903574">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="174279344204292" type="projectile">
-                            <param id="0" name="Object">switch_common</param>
+                            <param id="0" name="Object">Switch_triple_1</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="316200165933622" type="System">
-                            <param id="0" name="Object to create">switchOn_common</param>
+                            <param id="0" name="Object to create">switch_triple_0</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">switch_common.X</param>
-                            <param id="3" name="Y">switch_common.Y</param>
+                            <param id="2" name="X">Switch_triple_1.X</param>
+                            <param id="3" name="Y">switch_triple_1.Y</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="810753112794352" type="switchOn_common">
-                            <param id="0" name="Angle">switch_common.Angle</param>
+                        <action id="-8" name="Set angle" sid="810753112794352" type="switch_triple_0">
+                            <param id="0" name="Angle">switch_triple_1.Angle</param>
                         </action>
                         <action id="-10" name="Add to" sid="814619720986768" type="System">
                             <param id="0" name="Variable">currentActiveSwitches</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="718084595042376" type="switch_common" />
+                        <action id="-9" name="Destroy" sid="718084595042376" type="Switch_triple_1" />
                         <action id="-9" name="Destroy" sid="603723724448356" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="531769438763754">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="359859218787432" type="projectile">
+                            <param id="0" name="Object">switch_triple_0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="505827261243823" type="System">
+                            <param id="0" name="Object to create">Switch_triple_3</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switch_triple_0.X</param>
+                            <param id="3" name="Y">switch_triple_0.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="950302743897053" type="Switch_triple_3">
+                            <param id="0" name="Angle">switch_triple_0.Angle</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="325794274178761" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="947235774914571" type="switch_triple_0" />
+                        <action id="-9" name="Destroy" sid="217624045178177" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="268300416699106">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="498403124097415" type="projectile">
+                            <param id="0" name="Object">Switch_dual_2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="642843085817266" type="System">
+                            <param id="0" name="Object to create">Switch_dual_1</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">Switch_dual_2.X</param>
+                            <param id="3" name="Y">Switch_dual_2.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="752983083588866" type="Switch_dual_1">
+                            <param id="0" name="Angle">Switch_dual_2.Angle</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="754793597680454" type="Switch_dual_2" />
+                        <action id="-9" name="Destroy" sid="785649850104936" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="133575051678612">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="532559673462485" type="projectile">
+                            <param id="0" name="Object">Switch_dual_1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="227264093035076" type="System">
+                            <param id="0" name="Object to create">switch_dual_0</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switch_dual_1.X</param>
+                            <param id="3" name="Y">switch_dual_1.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="991290799638317" type="switch_dual_0">
+                            <param id="0" name="Angle">switch_dual_1.Angle</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="138043626026036" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="822061239153359" type="Switch_dual_1" />
+                        <action id="-9" name="Destroy" sid="481597871676765" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="195823972797487">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="180590007987587" type="projectile">
+                            <param id="0" name="Object">switch_dual_0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="700537991409577" type="System">
+                            <param id="0" name="Object to create">Switch_dual_2</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switch_dual_0.X</param>
+                            <param id="3" name="Y">switch_dual_0.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="337102771747663" type="Switch_dual_2">
+                            <param id="0" name="Angle">switch_dual_0.Angle</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="201706255562517" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="528501663243912" type="switch_dual_0" />
+                        <action id="-9" name="Destroy" sid="372442030164673" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="443944926931386">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="803014423041037" type="projectile">
+                            <param id="0" name="Object">switch_common_1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="328895875337390" type="System">
+                            <param id="0" name="Object to create">switch_common_0</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">switch_common_1.X</param>
+                            <param id="3" name="Y">switch_common_1.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="533580719077262" type="switch_common_0">
+                            <param id="0" name="Angle">switch_common_1.Angle</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="403977551126021" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="113778306750541" type="switch_common_1" />
+                        <action id="-9" name="Destroy" sid="147997140623109" type="projectile" />
                     </actions>
                 </event-block>
                 <event-block sid="312387923809425">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="293235503639954" type="projectile">
-                            <param id="0" name="Object">switchOn_common</param>
+                            <param id="0" name="Object">switch_common_0</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="539517061686205" type="System">
-                            <param id="0" name="Object to create">switch_common</param>
+                            <param id="0" name="Object to create">switch_common_1</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">switchOn_common.X</param>
-                            <param id="3" name="Y">switchOn_common.Y</param>
+                            <param id="2" name="X">switch_common_0.X</param>
+                            <param id="3" name="Y">switch_common_0.Y</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="474822505507699" type="switch_common">
-                            <param id="0" name="Angle">switchOn_common.Angle</param>
+                        <action id="-8" name="Set angle" sid="474822505507699" type="switch_common_1">
+                            <param id="0" name="Angle">switch_common_0.Angle</param>
                         </action>
                         <action id="-11" name="Subtract from" sid="347055873123912" type="System">
                             <param id="0" name="Variable">currentActiveSwitches</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="317645573334465" type="switchOn_common" />
+                        <action id="-9" name="Destroy" sid="317645573334465" type="switch_common_0" />
                         <action id="-9" name="Destroy" sid="105435186477708" type="projectile" />
                     </actions>
                 </event-block>
