@@ -329,6 +329,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <lifeTime>0</lifeTime>
+                        <arrayPosition>0</arrayPosition>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -439,7 +443,7 @@
                         <height>149</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.496644288</hotspotY>
+                        <hotspotY>0.503355682</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

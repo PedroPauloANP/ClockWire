@@ -395,6 +395,10 @@
         </object-type>
         <object-type name="SwitchTime" sid="500126258835785">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="O tempo de vida que este time switch tem" name="lifeTime" sid="928781416759399" type="number" />
+                <instance-variable name="arrayPosition" sid="918755125009974" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="726193304244931" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Guilherme\Desktop\construct\Switch_Time.png">
@@ -502,14 +506,14 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="351039085704129" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.496644" original-source="C:\Users\Guilherme\Desktop\construct\sprites\Switch_Triplo_01.png">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503356" original-source="C:\Users\Guilherme\Desktop\construct\sprites\Switch_Triplo_01.png">
                         <collision-poly>
-                            <point x="0.758389" y="1" />
-                            <point x="0.241611" y="1" />
-                            <point x="0" y="0.308346" />
-                            <point x="0.151006" y="0" />
-                            <point x="0.825503" y="0" />
-                            <point x="1" y="0.313665" />
+                            <point x="0.993378" y="0.246994" />
+                            <point x="0.993378" y="0.753006" />
+                            <point x="0.310884" y="0.989583" />
+                            <point x="0.00662252" y="0.841723" />
+                            <point x="0.00662252" y="0.181278" />
+                            <point x="0.316133" y="0.0104167" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -533,6 +537,12 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="RandomNumber" sid="943440129005672">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text" sid="651005314559847">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
