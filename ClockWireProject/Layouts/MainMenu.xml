@@ -73,24 +73,29 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Sprite" uid="14">
+                <instance type="MainMenu_gameVersion" uid="35">
                     <properties>
+                        <text>alpha v2.4</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <font>Myriad Pro,-17,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1074</x>
-                        <y>674</y>
+                        <x>1115.269775391</x>
+                        <y>662.352233887</y>
                         <z>0</z>
-                        <width>269</width>
-                        <height>19</height>
+                        <width>97.26953125</width>
+                        <height>30</height>
                         <depth>0</depth>
-                        <hotspotX>0.51672864</hotspotX>
-                        <hotspotY>0.526315808</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

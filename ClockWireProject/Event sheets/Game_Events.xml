@@ -3,12 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game_Events</name>
     <events>
-        <variable comment="How many switches the level has" constant="0" name="target_normalSwitch_count" sid="727465967218159" static="0" type="number">2</variable>
-        <variable constant="0" name="target_doubleSwitch_count" sid="517363302249231" static="0" type="number">1</variable>
-        <variable constant="0" name="target_tripleSwitch_count" sid="855112951786121" static="0" type="number">1</variable>
         <variable comment="How many switches were activated by the player" constant="0" name="currentActiveSwitches" sid="795508720638443" static="0" type="number">0</variable>
         <variable comment="Used to tell the game the current state of the game" constant="0" name="gameState" sid="720529130776077" static="0" type="text">initializing</variable>
-        <variable comment="The time that the player have to complete the level" constant="0" name="level_initial_time" sid="430963284079630" static="0" type="number">12</variable>
         <event-group description='Trata de &quot;Pinar&quot; o ponteiro para que ele gire com o &quot;centerAnchor&quot; e iniciar o tempo do relógio' sid="433028441361910" title="Layout Initializer">
             <sub-events>
                 <event-block sid="752408382869034">
@@ -46,7 +42,7 @@
                 <variable constant="0" name="doubleSwitch_count" sid="825969396863317" static="0" type="number">0</variable>
                 <variable constant="0" name="tripleSwitch_count" sid="561838491966369" static="0" type="number">0</variable>
                 <variable constant="0" name="totalCount" sid="522537401124711" static="0" type="number">0</variable>
-                <variable constant="0" name="randomValue" sid="358253135643905" static="0" type="number">0</variable>
+                <variable constant="0" name="randomPosition" sid="358253135643905" static="0" type="number">0</variable>
                 <event-block sid="387160024654622">
                     <conditions>
                         <condition id="-10" name="For" sid="498273639793788" type="System">
@@ -63,7 +59,7 @@
                     <actions>
                         <action id="5" name="Push" sid="597236789411407" type="sockets_6">
                             <param id="0" name="Where">1</param>
-                            <param id="1" name="Value">0</param>
+                            <param id="1" name="Value">&quot;empty&quot;</param>
                             <param id="2" name="Axis">0</param>
                         </action>
                     </actions>
@@ -89,7 +85,7 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="794275977290210" type="System">
-                                    <param id="0" name="Variable">randomValue</param>
+                                    <param id="0" name="Variable">randomPosition</param>
                                     <param id="1" name="Value">floor(random(0,6))</param>
                                 </action>
                             </actions>
@@ -97,9 +93,9 @@
                                 <event-block sid="464599437259212">
                                     <conditions>
                                         <condition id="0" name="Compare at X" sid="724572178311171" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">0</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -110,7 +106,7 @@
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
                                         <action id="-8" name="Set angle" sid="305315787521782" type="switch_common_1">
-                                            <param id="0" name="Angle">30 + (randomValue * 60)</param>
+                                            <param id="0" name="Angle">30 + (randomPosition * 60)</param>
                                         </action>
                                         <action id="-17" name="Move forward" sid="968107848308480" type="switch_common_1">
                                             <param id="0" name="Distance">175</param>
@@ -120,7 +116,7 @@
                                             <param id="1" name="Value">1</param>
                                         </action>
                                         <action id="2" name="Set at X" sid="458757509644366" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Value">&quot;normalSwitch&quot;</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="105166161532436" type="System">
@@ -142,7 +138,7 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="452655236827440" type="System">
-                                    <param id="0" name="Variable">randomValue</param>
+                                    <param id="0" name="Variable">randomPosition</param>
                                     <param id="1" name="Value">floor(random(0,6))</param>
                                 </action>
                             </actions>
@@ -150,9 +146,9 @@
                                 <event-block sid="302690056118663">
                                     <conditions>
                                         <condition id="0" name="Compare at X" sid="848406678457278" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">0</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -163,7 +159,7 @@
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
                                         <action id="-8" name="Set angle" sid="814738159830863" type="Switch_dual_2">
-                                            <param id="0" name="Angle">30 + (randomValue * 60)</param>
+                                            <param id="0" name="Angle">30 + (randomPosition * 60)</param>
                                         </action>
                                         <action id="-17" name="Move forward" sid="707918633538889" type="Switch_dual_2">
                                             <param id="0" name="Distance">175</param>
@@ -173,7 +169,7 @@
                                             <param id="1" name="Value">1</param>
                                         </action>
                                         <action id="2" name="Set at X" sid="248578206095437" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Value">&quot;doubleSwitch&quot;</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="131129062630114" type="System">
@@ -195,7 +191,7 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="438178967886241" type="System">
-                                    <param id="0" name="Variable">randomValue</param>
+                                    <param id="0" name="Variable">randomPosition</param>
                                     <param id="1" name="Value">floor(random(0,6))</param>
                                 </action>
                             </actions>
@@ -203,9 +199,9 @@
                                 <event-block sid="451410848033528">
                                     <conditions>
                                         <condition id="0" name="Compare at X" sid="769817836859615" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">0</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -216,7 +212,7 @@
                                             <param id="3" name="Y">centerAnchor.Y</param>
                                         </action>
                                         <action id="-8" name="Set angle" sid="690683233929005" type="Switch_triple_3">
-                                            <param id="0" name="Angle">30 + (randomValue * 60)</param>
+                                            <param id="0" name="Angle">30 + (randomPosition * 60)</param>
                                         </action>
                                         <action id="-17" name="Move forward" sid="357382537713283" type="Switch_triple_3">
                                             <param id="0" name="Distance">175</param>
@@ -226,7 +222,7 @@
                                             <param id="1" name="Value">1</param>
                                         </action>
                                         <action id="2" name="Set at X" sid="984654810758293" type="sockets_6">
-                                            <param id="0" name="X">randomValue</param>
+                                            <param id="0" name="X">randomPosition</param>
                                             <param id="1" name="Value">&quot;tripleSwitch&quot;</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="738419301849721" type="System">
@@ -535,6 +531,41 @@
                         <action id="-9" name="Destroy" sid="105435186477708" type="projectile" />
                     </actions>
                 </event-block>
+                <event-block sid="622370704628968">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="518778607491137" type="projectile">
+                            <param id="0" name="Object">SwitchTime</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="309905656457813" type="clock">
+                            <param id="0" name="Instance variable">currentTime</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="213292402985831" type="sockets_6">
+                            <param id="0" name="X">SwitchTime.arrayPosition</param>
+                            <param id="1" name="Value">&quot;empty&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="326604409686608" type="SwitchTime" />
+                        <action id="-9" name="Destroy" sid="626063075733481" type="projectile" />
+                    </actions>
+                </event-block>
+                <event-block sid="928843095395601">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="120022178254515" type="SwitchTime">
+                            <param id="0" name="Instance variable">lifeTime</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set at X" sid="874342712737349" type="sockets_6">
+                            <param id="0" name="X">SwitchTime.arrayPosition</param>
+                            <param id="1" name="Value">&quot;empty&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="673892065136680" type="SwitchTime" />
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="Faz a contagem do tempo" sid="950693308260780" title="Clock Management">
@@ -562,6 +593,10 @@
                         </action>
                         <action id="0" name="Set text" sid="528733237972976" type="clock">
                             <param id="0" name="Text">&quot;Time: &quot; &amp; floor(clock.currentTime)&amp;&quot;.&quot;&amp;(clock.currentTime*10)%10</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="703815781865343" type="SwitchTime">
+                            <param id="0" name="Instance variable">lifeTime</param>
+                            <param id="1" name="Value">0.1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -780,7 +815,15 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="315512101769772" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="315512101769772" type="System" />
+                        <action id="-9" name="Set value" sid="332547042612602" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="282519152206328" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-26" name="Restart layout" sid="619084042948946" type="System" />
                     </actions>
                 </event-block>
@@ -796,7 +839,15 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="926027076477994" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="926027076477994" type="System" />
+                        <action id="-9" name="Set value" sid="974471716666316" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="478705278524961" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-2" name="Go to layout" sid="338345654216215" type="System">
                             <param id="0" name="Layout">MainMenu</param>
                         </action>
@@ -811,7 +862,15 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="525983167624760" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="525983167624760" type="System" />
+                        <action id="-9" name="Set value" sid="101545255852432" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="777685875765219" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-26" name="Restart layout" sid="746202436793858" type="System" />
                     </actions>
                 </event-block>
@@ -824,7 +883,15 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="964644020360202" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="964644020360202" type="System" />
+                        <action id="-9" name="Set value" sid="292224561082276" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="173890020302451" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-2" name="Go to layout" sid="109131935603592" type="System">
                             <param id="0" name="Layout">MainMenu</param>
                         </action>
@@ -891,7 +958,15 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="433050670509790" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="433050670509790" type="System" />
+                        <action id="-9" name="Set value" sid="760076814340909" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="456645414491713" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-2" name="Go to layout" sid="508523232305979" type="System">
                             <param id="0" name="Layout">MainMenu</param>
                         </action>
@@ -909,11 +984,139 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-21" name="Reset global variables" sid="840272779798179" type="System" />
+                        <action disabled="1" id="-21" name="Reset global variables" sid="840272779798179" type="System" />
+                        <action id="-9" name="Set value" sid="854354593751791" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Value">&quot;initializing&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="700960364592446" type="System">
+                            <param id="0" name="Variable">currentActiveSwitches</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-2" name="Go to layout" sid="779587966040428" type="System">
                             <param id="0" name="Layout">MainMenu</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Controla a criação dos TimeSwitches" sid="793445308038262" title="TimeSwitch Creation Management">
+            <sub-events>
+                <variable constant="0" name="timeSwitchChance" sid="107954339931283" static="0" type="number">20</variable>
+                <variable constant="0" name="timeSwitchRandomizer" sid="591806083932002" static="0" type="number">0</variable>
+                <variable constant="0" name="randomPosition" sid="862602345669245" static="0" type="number">0</variable>
+                <event-block sid="890351695699345">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="588086817367237" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="275563669012191" type="System">
+                            <param id="0" name="Variable">gameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;onGame&quot;</param>
+                        </condition>
+                        <condition id="5" name="Contains value" sid="300252576068249" type="sockets_6">
+                            <param id="0" name="Value">&quot;empty&quot;</param>
+                        </condition>
+                        <condition id="5" inverted="1" name="Contains value" sid="445705124621853" type="sockets_6">
+                            <param id="0" name="Value">&quot;timeSwitch&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="322645854921686" type="System">
+                            <param id="0" name="Variable">timeSwitchRandomizer</param>
+                            <param id="1" name="Value">random(0,100)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="551396225155035" type="RandomNumber">
+                            <param id="0" name="Text">&quot;Random number = not generating&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="697458739284532">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="912121262823721" type="System">
+                                    <param id="0" name="Variable">timeSwitchRandomizer</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">timeSwitchChance</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="151820171225112" type="System">
+                                    <param id="0" name="Variable">randomPosition</param>
+                                    <param id="1" name="Value">floor(random(0,6))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="658746421319314">
+                                    <conditions>
+                                        <condition id="-23" name="While" sid="540154893813256" type="System" />
+                                        <condition id="0" name="Compare at X" sid="223230286451551" type="sockets_6">
+                                            <param id="0" name="X">randomPosition</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="787045332453001" type="System">
+                                            <param id="0" name="Variable">randomPosition</param>
+                                            <param id="1" name="Value">floor(random(0,6))</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="150974328600707" type="RandomNumber">
+                                            <param id="0" name="Text">&quot;Random number = wrong index!!!   &quot;  &amp;timeSwitchRandomizer </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="114928549309756">
+                                    <conditions>
+                                        <condition id="0" name="Compare at X" sid="312650164714092" type="sockets_6">
+                                            <param id="0" name="X">randomPosition</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="143602536991037" type="System">
+                                            <param id="0" name="Object to create">SwitchTime</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">centerAnchor.X</param>
+                                            <param id="3" name="Y">centerAnchor.Y</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="495247686879168" type="SwitchTime">
+                                            <param id="0" name="Angle">30 + (randomPosition * 60)</param>
+                                        </action>
+                                        <action id="-17" name="Move forward" sid="263569991734926" type="SwitchTime">
+                                            <param id="0" name="Distance">175</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="459233936344533" type="SwitchTime">
+                                            <param id="0" name="Instance variable">lifeTime</param>
+                                            <param id="1" name="Value">3</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="303530533485374" type="SwitchTime">
+                                            <param id="0" name="Instance variable">arrayPosition</param>
+                                            <param id="1" name="Value">randomPosition</param>
+                                        </action>
+                                        <action id="2" name="Set at X" sid="222664681445879" type="sockets_6">
+                                            <param id="0" name="X">randomPosition</param>
+                                            <param id="1" name="Value">&quot;timeSwitch&quot;</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="383042698104673" type="RandomNumber">
+                                            <param id="0" name="Text">&quot;Random number = got index!!!   &quot;  &amp;timeSwitchRandomizer </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="342054736246655">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="130768411610475" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="947588838622518" type="RandomNumber">
+                                    <param id="0" name="Text">&quot;Random number = &quot;  &amp;timeSwitchRandomizer</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>

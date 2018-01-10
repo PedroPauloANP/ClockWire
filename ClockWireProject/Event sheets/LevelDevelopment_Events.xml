@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>LevelDevelopment_Events</name>
+    <events>
+        <variable comment="How many normal switches the level will have" constant="0" name="target_normalSwitch_count" sid="727465967218159" static="0" type="number">3</variable>
+        <variable comment="How many doublel switches the level will have" constant="0" name="target_doubleSwitch_count" sid="517363302249231" static="0" type="number">0</variable>
+        <variable comment="How many triple switches the level will have" constant="0" name="target_tripleSwitch_count" sid="855112951786121" static="0" type="number">0</variable>
+        <variable comment="The time that the player have to complete the level" constant="0" name="level_initial_time" sid="430963284079630" static="0" type="number">12</variable>
+        <event-group description="" sid="984693983015147" title="Group">
+            <sub-events>
+                <variable constant="0" name="switchValue1" sid="273865869940867" static="0" type="number">3</variable>
+                <variable constant="0" name="switchValue2" sid="786425747366767" static="0" type="number">0</variable>
+                <variable constant="0" name="switchValue3" sid="732466557382168" static="0" type="number">0</variable>
+                <variable constant="0" name="timeValue" sid="529248188685129" static="0" type="number">12</variable>
+                <event-block sid="626229568415402">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="562496500063486" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="103275532751936" type="SETUPlevel_NormalSwitches">
+                            <param id="0" name="Text">str(target_normalSwitch_count)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="835682175151422" type="SETUPlevel_DoubleSwitches">
+                            <param id="0" name="Text">str(target_doubleSwitch_count) </param>
+                        </action>
+                        <action id="0" name="Set text" sid="214855249808734" type="SETUPlevel_TripleSwitches">
+                            <param id="0" name="Text">str(target_tripleSwitch_count)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="204219310612451" type="SETUPlevel_LevelTime">
+                            <param id="0" name="Text">str(level_initial_time)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="169053095137557">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="393239940471908" type="TestLevelButton" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="371611055436163" type="System">
+                            <param id="0" name="Variable">switchValue1</param>
+                            <param id="1" name="Value">int(SETUPlevel_NormalSwitches.Text)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="684076032019671" type="System">
+                            <param id="0" name="Variable">switchValue2</param>
+                            <param id="1" name="Value">int(SETUPlevel_DoubleSwitches.Text)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="232955646887601" type="System">
+                            <param id="0" name="Variable">switchValue3</param>
+                            <param id="1" name="Value">int(SETUPlevel_TripleSwitches.Text)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="563950168466649" type="System">
+                            <param id="0" name="Variable">timeValue</param>
+                            <param id="1" name="Value">int(SETUPlevel_LevelTime.text)</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set text" sid="823821188899016" type="TestLevelMessages">
+                            <param id="0" name="Text">switchValue1&amp;&quot;-&quot;&amp;switchValue2&amp;&quot;-&quot;&amp;switchValue3&amp;&quot;-&quot;&amp;timeValue</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="843264780015464">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="500596158891110" type="System">
+                                    <param id="0" name="Variable">switchValue1</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="178842358103831" type="System">
+                                    <param id="0" name="Variable">switchValue2</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="558928170131200" type="System">
+                                    <param id="0" name="Variable">switchValue3</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="238091913909143">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="344249310880287" type="System">
+                                            <param id="0" name="Variable">timeValue</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="678722906105397">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="203917199811673" type="System">
+                                                    <param id="0" name="First value">switchValue1 + switchValue2 + switchValue3</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="865111135670989" type="System">
+                                                    <param id="0" name="First value">switchValue1 + switchValue2 + switchValue3</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Second value">6</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="258132527972502" type="TestLevelMessages">
+                                                    <param id="0" name="Text">&quot;Generating Level&quot;</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="236067300882367" type="System">
+                                                    <param id="0" name="Variable">target_normalSwitch_count</param>
+                                                    <param id="1" name="Value">switchValue1</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="399976115323114" type="System">
+                                                    <param id="0" name="Variable">target_doubleSwitch_count</param>
+                                                    <param id="1" name="Value">switchValue2</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="322655351952882" type="System">
+                                                    <param id="0" name="Variable">target_tripleSwitch_count</param>
+                                                    <param id="1" name="Value">switchValue3</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="717920522337400" type="System">
+                                                    <param id="0" name="Variable">level_initial_time</param>
+                                                    <param id="1" name="Value">timeValue</param>
+                                                </action>
+                                                <action id="-2" name="Go to layout" sid="837860320196534" type="System">
+                                                    <param id="0" name="Layout">Game</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="963890408425936">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="506425438542024" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="700872108424757" type="TestLevelMessages">
+                                                    <param id="0" name="Text">&quot;Aviso: O numero total de Switches deve ser no minimo 1 e no maximo 6&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="605392791209903">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="728195463195440" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="952823921870030" type="TestLevelMessages">
+                                            <param id="0" name="Text">&quot;O tempo de jogo deve ser um valor positivo maior que zero&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="766512702688688">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="402186720390050" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="266406641985393" type="TestLevelMessages">
+                                    <param id="0" name="Text">&quot;Aviso: Números negativos são inválidos&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
